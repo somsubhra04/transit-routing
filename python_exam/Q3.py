@@ -5,12 +5,12 @@ However, DO NOT CHANGE THE TEMPLATE CHANGE THE TEMPLATE OF THE FUNCTIONS PROVIDE
 """
 import numpy as np
 
-def calc_time(st):
-    hrs = int(st[:2])
-    mins = int(st[3:5])
-    secs = int(st[6:])
-
-    return 3600*hrs + 60*mins + secs
+def find_time(st):
+    h = int(st[:2])
+    m = int(st[3:5])
+    s = int(st[6:])
+    t = 3600*h + 60*m + s
+    return (t)
 
 def number_of_routes(source_stopid: str, destination_stopid: str) -> int:
     """
