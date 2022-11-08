@@ -3,8 +3,7 @@ Enter the solution for Q2 here.
 Note: You may use may define any additional class, functions if necessary.
 However, DO NOT CHANGE THE TEMPLATE CHANGE THE TEMPLATE OF THE FUNCTIONS PROVIDED.
 """
-
-
+import numpy as np
 def bidirectional_dij(source: int, destination: int, graph_object) -> int:
     """
     Bi-directional Dijkstra's algorithm.
