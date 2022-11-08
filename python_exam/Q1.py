@@ -38,14 +38,13 @@ def Dij_generator():
     except:
         return graph_object
 
-def min_D(dist, dist_calc):
+def mini_dist(dist, dist_cal):
     mn = np.inf
-
     for i in range(dist.shape[0]):
-        if dist_calc[i]==0 and dist[i]<mn:
+        if dist_cal[i]==0 and dist[i]<mn:
             mn = dist[i]
-            min_index = i
-    return min_index
+            mini_index = i
+    return mini_index
 
 def Q1_dijkstra(source: int, destination: int, graph_object) -> int:
     """
@@ -65,16 +64,14 @@ def Q1_dijkstra(source: int, destination: int, graph_object) -> int:
     shortest_path_distance = -1
     try:
         # Enter your code here
-        try:
         V = graph_object.shape[1]
-
         dist = np.ones(V) * np.inf
         dist[source-1] = 0
-        dist_calc = np.zeros(V)
+        dist_cal = np.zeros(V)
         
         for i in range(V):
-            u = min_D(dist, dist_calc)
-            dist_calc[u] = 1
+            u = mini_dist(dist, dist_cal)
+            dist_cal[u] = 1
             for v in range(V):
                 is_neighbour = graph_object[u][v]!=np.inf
                 if (is_neighbour):
