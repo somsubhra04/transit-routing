@@ -17,23 +17,23 @@ def Dij_generator():
     try:
         # Enter your code here
         with open(r"C:\Users\Somsubhra\transit-routing\python_exam\ChicagoSketch_net.tntp") as f:
-            lines = f.readlines()
-        lines = lines[9:]
-        inits = []
-        terms = []
-        lengths = []
-        for i in range(len(lines)):
-            temp = lines[i].split()
-            inits.append(int(temp[0]))
-            terms.append(int(temp[1]))
-            lengths.append(float(temp[4]))
+        linect = f.readlines()
+        linect = linect[9:]
+        init = []
+        length = []
+        termct = []
+        for i in range(len(linect)):
+            tval = linect[i].split()
+            init.append(int(tval[0]))
+            termct.append(int(tval[1]))
+            length.append(float(tval[4]))
         
-        dims1 = max(inits)
-        dims2 = max(terms)
-        graph_object = np.ones((dims1, dims2))*np.inf
+        v1 = max(init)
+        v2 = max(termct)
+        graph_object = np.ones((v1, v2))*np.inf
 
-        for i in range(len(lengths)):
-            graph_object[inits[i]-1][terms[i]-1] = lengths[i]
+        for i in range(len(length)):
+            graph_object[init[i]-1][termct[i]-1] = length[i]
         return graph_object
     except:
         return graph_object
@@ -85,5 +85,5 @@ def Q1_dijkstra(source: int, destination: int, graph_object) -> int:
         return shortest_path_distance
     except:
         return shortest_path_distance
-graph_object = Dij_generator()
-print(Q1_dijkstra(253, 127, graph_object))
+graph_object = Dij_generator() #graph_object: tuple to store mult values
+print(Q1_dijkstra(139, 305, graph_object))
